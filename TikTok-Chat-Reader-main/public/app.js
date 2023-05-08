@@ -112,7 +112,7 @@ function addGiftItem(data) {
     let streakId = data.userId.toString() + '_' + data.giftId;
 
     let html = `
-        <div data-streakid=${isPendingStreak(data) ? streakId : ''}>
+        <div class="giftitem">
             <img class="miniprofilepicture" src="${data.profilePictureUrl}">
             <span>
                 <b>${generateUsernameLink(data)}:</b> <span>${data.describe}</span><br>
@@ -122,8 +122,7 @@ function addGiftItem(data) {
                             <td><img class="gifticon" src="${data.giftPictureUrl}"></td>
                             <td class="user-gift">
                                 <span class="user-giftname">Подарунок: <b>${data.giftName}</b></span><br>
-                                <span class="user-count">Кількість: <b>x</b><b>${data.repeatCount.toLocaleString()}</b></span><br>
-                                <span class="user-price">Ціна: <b>${(data.diamondCount * data.repeatCount).toLocaleString()}</b> <b>Діамантів</b></span>
+                                <span class="user-price">Ціна: <b>${(data.diamondCount).toLocaleString()}</b> <b>Діамантів</b></span>
                             </td>
                         </tr>
                     </table>
