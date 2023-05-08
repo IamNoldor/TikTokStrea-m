@@ -16,9 +16,13 @@ document.addEventListener("DOMNodeInserted", (evt) => {
 
 function getGiftInfo(evt_target) {
     let nickname = evt_target.children[1].children[0].children[0].text
+    let rep_nick = nickname.replace("_", "")
+    rep_nick = rep_nick.replace(".", "")
     //let gift_price = evt_target.children[1].children[1].children[0].children[0].children[1].children[0].textContent
     doSound()
-    speak(nickname)
+    setTimeout(() => {
+        speak(rep_nick)
+    }, 500)
 }
 
 function doSound() {
@@ -29,10 +33,8 @@ function doSound() {
 }
 
 function speak(nickname) {
-    setTimeout(() => {
-        let rep_nick = nickname.replace("_", "")
-        let speech = window.speechSynthesis
-        let text = new SpeechSynthesisUtterance("Дякую за подарунок " + rep_nick)
-        speech.speak(text)
-    }, 1000)
+    let speech = window.speechSynthesis
+    let text = new SpeechSynthesisUtterance("Дякую за подарунок " + nickname)
+    text.volume = 2
+    speech.speak(text)
 }
