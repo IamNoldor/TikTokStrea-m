@@ -140,6 +140,9 @@ function addGiftItem(data) {
     }
 
     container.stop();
+    container.animate({
+        scrollTop: container[0].scrollHeight
+    }, 800);
 }
 
 
